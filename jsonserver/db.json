@@ -1,9 +1,28 @@
 {
-  "user": [
+  "users": [
     {
       "id": 1,
-      "name": "武田 真之",
-      "gender": "男"
+      "user_id": "test1",
+      "mail": "test1@example.jp",
+      "age": 20,
+      "gender": 1,
+      "job": "エンジニア",
+      "interests": [
+        "ゲーム",
+        "プログラミング"
+      ]
+    },
+    {
+      "id": 2,
+      "user_id": "test2",
+      "mail": "test2@example.jp",
+      "age": 25,
+      "gender": 2,
+      "job": "美容師",
+      "interests": [
+        "ショッピング",
+        "カフェ巡り"
+      ]
     }
   ]
 }
