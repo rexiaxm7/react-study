@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Test } from "./components/pages/Test";
+import UserPage from "./components/pages/UserPage";
 
 const rootElement = document.getElementById("root");
 render(
@@ -12,7 +12,7 @@ render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="test" element={<Test />} />
+        <Route path="users" element={<UserPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
