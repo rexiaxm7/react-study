@@ -4,18 +4,24 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Test } from "./components/pages/Test";
+import { Users } from "./components/pages/Users";
+import { Container } from "@mui/material";
+import { DefaultLayout } from "./components/layouts/DefaultLayout";
 
 const rootElement = document.getElementById("root");
 render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="test" element={<Test />} />
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>,
+  <Container>
+    <React.StrictMode>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<App />} />
+          <Route path="/" element={<DefaultLayout />}>
+            <Route path="/users" element={<Users />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </React.StrictMode>
+  </Container>,
   rootElement
 );
 

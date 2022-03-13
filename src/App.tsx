@@ -2,7 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { Test } from "./components/pages/Test";
+import { Users } from "./components/pages/Users";
 
 function App() {
   return (
