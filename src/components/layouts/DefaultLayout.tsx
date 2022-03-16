@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 export const DefaultLayout = () => {
   return (
-    <Box>
+    <Box sx={{ height: "100vh" }}>
       <main>
         <Outlet />
       </main>
