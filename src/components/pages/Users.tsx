@@ -4,10 +4,12 @@ import {
   GridRenderCellParams,
   GridValueGetterParams,
 } from "@mui/x-data-grid";
-import { SetStateAction, useEffect, useState } from "react";
+import {SetStateAction, useContext, useEffect, useState} from "react";
 import axios from "axios";
+import {MessageContext} from "../../context/MessageContext";
 
 export const Users = () => {
+  const {message,setMessage} = useContext(MessageContext);
   const initialColumns = [
     { field: "id", headerName: "id", hide: true, flex: 1 },
     { field: "user_id", headerName: "ユーザー名", flex: 1 },
@@ -34,7 +36,13 @@ export const Users = () => {
 
   useEffect(() => {
     (async () => {
-      const data = await axios.get("http://localhost:3001/users");
+      const data = await axios.get("http://localhost:3001/users").catch((e) => {
+      });
+
+      if (data === undefined) {
+        setMessage("データの取得に失敗しました");
+        return;
+      }
       setRows(data.data);
     })();
   }, []);
@@ -47,7 +55,7 @@ export const Users = () => {
         alignContent="center"
         height={"100%"}
       >
-        <Grid item xs={12} >
+        <Grid item xs={12}>
           <Card sx={{ height: "300px" }}>
             <Grid container justifyContent="end" alignContent="">
               <Grid

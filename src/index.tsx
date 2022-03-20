@@ -1,27 +1,17 @@
-import React from "react";
+import React, { createContext } from "react";
 import ReactDOM, { render } from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Users } from "./components/pages/Users";
-import { Container } from "@mui/material";
-import { DefaultLayout } from "./components/layouts/DefaultLayout";
+import { BrowserRouter } from "react-router-dom";
 
 const rootElement = document.getElementById("root");
 render(
-  <Container>
-    <React.StrictMode>
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<App />} />
-          <Route path="/" element={<DefaultLayout />}>
-            <Route path="/users" element={<Users />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </React.StrictMode>
-  </Container>,
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>,
   rootElement
 );
 

@@ -1,28 +1,33 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, {createContext, SetStateAction, useContext, useState} from "react";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
 import { Users } from "./components/pages/Users";
+import { DefaultLayout } from "./components/layouts/DefaultLayout";
+import { Container } from "@mui/material";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { MessageContext } from "./context/MessageContext";
 
-function App() {
+
+const App = () => {
+
+  const [message,setMessage] = useState("")
+  const value = {
+    message,
+    setMessage,
+  };
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <MessageContext.Provider value={value}>
+        <Routes>
+          <Route index element={<Users />} />
+          <Route path="/" element={<DefaultLayout />}>
+            <Route path="/users" element={<Users />} />
+          </Route>
+        </Routes>
+      </MessageContext.Provider>
+    </Container>
   );
-}
+};
 
 export default App;
