@@ -1,4 +1,4 @@
-import { Gender, GenderList } from "./../consts/Gender";
+import { Gender, GenderList } from "../consts/Gender";
 
 export class UserRecord {
   id: string;
