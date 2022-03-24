@@ -1,4 +1,3 @@
-import React from "react";
 //import EditIcon from "@mui/icons-material/Edit";
 
 const genderTranslation = (params: { row: { gender: number } }) => {
