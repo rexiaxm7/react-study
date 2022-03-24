@@ -1,8 +1,8 @@
-import React from "react";
+//import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import { Test } from "./components/pages/Test";
+//import { Routes, Route } from "react-router-dom";
+//import { Test } from "./components/pages/Test";
 
 function App() {
   return (

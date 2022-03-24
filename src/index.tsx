@@ -1,10 +1,13 @@
 import React from "react";
-import ReactDOM, { render } from "react-dom";
+import /*ReactDOM,*/ { render } from "react-dom";
 import "./index.css";
-import App from "./App";
+
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import App from "./App";
 import { Test } from "./components/pages/Test";
+import { UserList } from "./components/pages/UserList";
 
 const rootElement = document.getElementById("root");
 render(
@@ -13,6 +16,7 @@ render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="test" element={<Test />} />
+        <Route path="userList" element={<UserList />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
