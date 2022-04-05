@@ -6,8 +6,8 @@ import { GridColDef} from "@mui/x-data-grid";
 // eslint-disable-next-line import/no-anonymous-default-export
 const Columns: GridColDef[] = [
   { field: 'id', 
-  headerName: 'ID', 
-  width: 90 
+    headerName: 'ID', 
+    width: 90 
   },
   {
     field: 'mail',

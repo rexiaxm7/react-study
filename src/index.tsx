@@ -6,14 +6,14 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Test } from "./components/pages/Test";
 //import User from "./components/pages/Columns";
-import DataGrid from "./components/pages/DataGrid";
+import { UserData } from "./components/pages/UserData";
 
 const rootElement = document.getElementById("root");
 render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<DataGrid />} />
+        <Route path="/" element={<UserData />} />
         <Route path="test" element={<Test />} />
       </Routes>
     </BrowserRouter>

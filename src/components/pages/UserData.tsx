@@ -5,35 +5,44 @@ import Button from '@mui/material/Button';
 
 import Columns from "./Columns";
 
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export default () => {
+export const UserData = () => {
+    /*type userObject = {
+        "id": number,
+        "mail": string,
+        "age": number,
+        "job": string,
+        "gender": string,
+        "interests": string,
+      };*/
+
     const [data, setData] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios(
-                'http://localhost:3001/users/',
+                'http://localhost:3001/users/'
             );
 
-        setData(result.data);
-    };
+            setData(result.data);
+        };
 
-    fetchData();
-    },[]);
+        fetchData();
+    }, []);
 
     //追加ボタンを押すと表示されるデータが空になる（未修正）
     function editToolBar() {
-        const handleClick = async () =>{
-            const newCulomns = await axios.post('http://localhost:3001/users/' , {
+        const handleClick = async () => {
+            const newCulomns = await axios.post('http://localhost:3001/users/', {
+                "id": "",
                 "user_id": "",
                 "mail": "",
                 "age": "",
-                "gender": "",
                 "job": "",
-                "interests": [
-                    ""
-                ]
-            })
+                "gender": "",
+                "interests": ""
+            });
             setData(newCulomns.data);
         };
         //作りかけの削除処理
@@ -45,25 +54,23 @@ export default () => {
         },
         [],
         );*/
-    
         return (
             <Button className="addition" variant="contained" color="primary" onClick={handleClick}>
-            + 追加
+                + 追加
             </Button>
         );
     };
 
     return (
         <div style={{ height: 400, width: '100%' }}>
-        <DataGrid
-          rows={data}
-          columns={Columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          components={{
-            Toolbar: editToolBar,
-          }}
-        />
-      </div>
+            <DataGrid
+                rows={data}
+                columns={Columns}
+                pageSize={5}
+                rowsPerPageOptions={[5]}
+                components={{
+                    Toolbar: editToolBar,
+                }} />
+        </div>
     );
 }
