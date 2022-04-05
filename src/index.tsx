@@ -5,15 +5,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Test } from "./components/pages/Test";
-import User from "./components/pages/User";
+//import User from "./components/pages/Columns";
+import DataGrid from "./components/pages/DataGrid";
 
 const rootElement = document.getElementById("root");
 render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="User" element={<User />} />
+        <Route path="/" element={<DataGrid />} />
         <Route path="test" element={<Test />} />
       </Routes>
     </BrowserRouter>
