@@ -34,7 +34,7 @@ export const UserData = () => {
     //追加ボタンを押すと表示されるデータが空になる（未修正）
     function editToolBar() {
         const handleClick = async () => {
-            const newCulomns = await axios.post('http://localhost:3001/users/', {
+            const newCulomns = await axios.post<[]>('http://localhost:3001/users/', {
                 "id": "",
                 "user_id": "",
                 "mail": "",
