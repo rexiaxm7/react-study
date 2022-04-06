@@ -8,16 +8,16 @@ import Columns from "./Columns";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export const UserData = () => {
-    /*type userObject = {
+    type userObject = {
         "id": number,
         "mail": string,
         "age": number,
         "job": string,
         "gender": string,
         "interests": string,
-      };*/
+      };
 
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<Array<userObject>>([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -34,16 +34,16 @@ export const UserData = () => {
     //追加ボタンを押すと表示されるデータが空になる（未修正）
     function editToolBar() {
         const handleClick = async () => {
-            const newCulomns = await axios.post<[]>('http://localhost:3001/users/', {
+            const newData = await axios.post<Array<userObject>>('http://localhost:3001/users/', {
                 "id": "",
                 "user_id": "",
                 "mail": "",
                 "age": "",
-                "job": "",
                 "gender": "",
-                "interests": ""
+                "job": "",
+                "interests": [""]
             });
-            setData(newCulomns.data);
+            setData(newData.data);
         };
         //作りかけの削除処理
         /*const deleteUser = React.useCallback(
