@@ -18,6 +18,7 @@ export const UserData = () => {
       };
 
     const [data, setData] = useState<Array<userObject>>([]);
+    //const [newData , setNewData] = useState<Array<userObject>>([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -34,7 +35,7 @@ export const UserData = () => {
     //追加ボタンを押すと表示されるデータが空になる（未修正）
     function editToolBar() {
         const handleClick = async () => {
-            const newData = await axios.post<Array<userObject>>('http://localhost:3001/users/', {
+            const newRow = await axios.post<Array<userObject>>('http://localhost:3001/users/', {
                 "id": "",
                 "user_id": "",
                 "mail": "",
@@ -43,7 +44,18 @@ export const UserData = () => {
                 "job": "",
                 "interests": [""]
             });
-            setData(newData.data);
+            setData(newRow.data);
+            
+            //ここをどうするのか
+            /*const fetchData = async () => {
+                const result = await axios(
+                    'http://localhost:3001/users/'
+                );
+    
+                setData(result.data);
+            };
+    
+            fetchData();*/
         };
         //作りかけの削除処理
         /*const deleteUser = React.useCallback(
