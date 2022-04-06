@@ -47,7 +47,7 @@ export const UserData = () => {
             setData(newRow.data);
             
             //ここをどうするのか
-            /*const fetchData = async () => {
+            const fetchData = async () => {
                 const result = await axios(
                     'http://localhost:3001/users/'
                 );
@@ -55,7 +55,7 @@ export const UserData = () => {
                 setData(result.data);
             };
     
-            fetchData();*/
+            fetchData();
         };
         //作りかけの削除処理
         /*const deleteUser = React.useCallback(
