@@ -1,4 +1,4 @@
-import React, {SyntheticEvent, useState} from "react";
+import React, {useState} from "react";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -9,16 +9,16 @@ import {
     Box,
     Button,
     Checkbox,
-    Container, FormGroup,
+    Container,
+    FormGroup,
     InputLabel,
     MenuItem,
-    Select, SelectChangeEvent,
+    Select,
     TextField,
     Typography
 } from "@mui/material";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
-import User from "../types/User";
 
 const UserCreateForm: React.VFC = () => {
     const navigate = useNavigate();
@@ -59,7 +59,7 @@ const UserCreateForm: React.VFC = () => {
                 setInterests([...interests, e.target.value]);
             }
         }else{
-            setInterests(interests.filter(x => x != e.target.value));
+            setInterests(interests.filter(x => x !== e.target.value));
         }
     };
 

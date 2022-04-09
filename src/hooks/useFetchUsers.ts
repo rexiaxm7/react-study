@@ -4,19 +4,17 @@ import axios from "axios";
 
 const useFetchUsers = () => {
     const [users, setUsers] = useState<User[]>([]);
+    const fetchUsers = async () => {
+        try {
+            const res = await axios.get<User[]>("http://localhost:3001/users");
+            setUsers(res.data);
+        }catch (ex) {
 
-    useEffect(() => {
-        axios
-            .get<User[]>('http://localhost:3001/users')
-            .then((res) => {
-                setUsers(res.data);
-            })
-            .catch(ex => {
-                console.log(ex);
-            });
-    }, []);
+        }
+    }
 
-    return { users }
+
+    return { users, fetchUsers }
 };
 
 export default useFetchUsers;

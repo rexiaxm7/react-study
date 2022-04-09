@@ -7,6 +7,7 @@ import User from "../types/User";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {IconButton} from "@mui/material";
+import {useEffect} from "react";
 
 const columns: GridColDef[] = [
     {
@@ -73,7 +74,11 @@ const columns: GridColDef[] = [
 ];
 
 const UserListTable: React.VFC = () => {
-    const { users } = useFetchUsers();
+    const { users, fetchUsers } = useFetchUsers();
+
+    useEffect(() => {
+        fetchUsers();
+    }, []);
 
     return (
         <div style={{ height: 400, width: '100%' }}>
