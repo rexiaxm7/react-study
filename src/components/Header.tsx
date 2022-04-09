@@ -6,7 +6,7 @@ const Header: React.VFC = () => {
         <AppBar position="static">
             <Toolbar>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    ユーザー一覧
+                    ユーザー管理
                 </Typography>
             </Toolbar>
         </AppBar>

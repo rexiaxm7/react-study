@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserPage from "./components/pages/UserPage";
+import UserCreatePage from "./components/pages/UserCreatePage";
 
 const rootElement = document.getElementById("root");
 render(
@@ -13,6 +14,7 @@ render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="users" element={<UserPage />} />
+        <Route path="users/create" element={<UserCreatePage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
