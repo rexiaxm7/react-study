@@ -20,8 +20,7 @@ export const UserCreate: FC = () => {
               <Grid
                   item
                   my={2}
-                  mr={2}
-                  mb={1}
+                  mb={0}
                   justifyContent={"center"}
                   alignContent={"center"}
               >
