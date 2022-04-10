@@ -1,19 +1,11 @@
-import {
-  FormControl,
-  FormControlLabel,
-  FormLabel,
-  InputAdornment,
-  InputBaseComponentProps,
-  InputProps,
-  Radio,
-  RadioGroup,
-  TextField,
-} from "@mui/material";
-import { FC, useContext } from "react";
-import { UserFormContext } from "../../../../../context/UserFormContext";
+import {FormControl, FormControlLabel, FormLabel, InputAdornment, InputProps, Radio, RadioGroup,} from "@mui/material";
+
+import {FC, useContext} from "react";
+import {UserFormContext} from "../../../../../context/UserFormContext";
 import WcIcon from "@mui/icons-material/Wc";
+
 export const Gender: FC = () => {
-  const { gender } = useContext(UserFormContext);
+  const { job } = useContext(UserFormContext);
   const inputProps: Partial<InputProps> = {
     startAdornment: (
       <InputAdornment position="start">
@@ -47,6 +39,7 @@ export const Gender: FC = () => {
       >
         {genderOptions.map((option) => (
           <FormControlLabel
+              key={option.value}
             value={option.value}
             control={<Radio />}
             label={option.text}
