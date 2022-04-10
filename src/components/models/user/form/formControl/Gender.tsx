@@ -6,13 +6,7 @@ import WcIcon from "@mui/icons-material/Wc";
 
 export const Gender: FC = () => {
   const { job } = useContext(UserFormContext);
-  const inputProps: Partial<InputProps> = {
-    startAdornment: (
-      <InputAdornment position="start">
-        <WcIcon />
-      </InputAdornment>
-    ),
-  };
+
   const genderOptions = [
     {
       text: "男",

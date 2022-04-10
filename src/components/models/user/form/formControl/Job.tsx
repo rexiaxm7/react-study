@@ -10,13 +10,7 @@ import { UserFormContext } from "../../../../../context/UserFormContext";
 import WorkIcon from "@mui/icons-material/Work";
 export const Job: FC = () => {
   const { job } = useContext(UserFormContext);
-  const inputProps: Partial<InputProps> = {
-    startAdornment: (
-      <InputAdornment position="start">
-        <WorkIcon />
-      </InputAdornment>
-    ),
-  };
+
 
   const jobOptions = [
     {
