@@ -1,4 +1,4 @@
-import {Stack, Typography} from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import { FC, useState } from "react";
 import {
   defaultValue,
@@ -18,10 +18,9 @@ import {
 export const UserForm: FC = () => {
   const [user, _] = useState<UserDataTypes>(defaultValue);
 
-
   return (
     <Stack spacing={3}>
-        <UserFormContext.Provider value={user}>
+      <UserFormContext.Provider value={user}>
         <UserIdFormControl> </UserIdFormControl>
         <UserMailFormControl> </UserMailFormControl>
         <UserNameFormControl> </UserNameFormControl>

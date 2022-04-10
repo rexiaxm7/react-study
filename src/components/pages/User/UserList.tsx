@@ -13,7 +13,7 @@ export const UserList = () => {
   const [rows, setRows] = useState<SetStateAction<any>>([]);
 
   useEffect(() => {
-    document.title = "ユーザー一覧"
+    document.title = "ユーザー一覧";
   }, []);
 
   useEffect(() => {
