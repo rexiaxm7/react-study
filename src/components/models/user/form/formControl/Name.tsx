@@ -1,15 +1,18 @@
-import {TextField,} from "@mui/material";
-import {FC, useContext} from "react";
-import {UserFormContext} from "../../../../../context/UserFormContext";
+import { TextField } from "@mui/material";
+import { FC, useContext } from "react";
+import { UserContext } from "../../../../../context/UserContext";
 
 export const Name: FC = () => {
-  const { name } = useContext(UserFormContext);
+  const { name, setName } = useContext(UserContext);
 
   return (
     <TextField
       label={"名前"}
       value={name}
       variant="standard"
-    ></TextField>
+      onChange={(e) => {
+        setName(e.target.value);
+      }}
+    />
   );
 };

@@ -1,10 +1,16 @@
-import {FormControl, FormControlLabel, FormLabel, Radio, RadioGroup,} from "@mui/material";
+import {
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Radio,
+  RadioGroup,
+} from "@mui/material";
 
-import {FC, useContext} from "react";
-import {UserFormContext} from "../../../../../context/UserFormContext";
+import { FC, useContext } from "react";
+import { UserContext } from "../../../../../context/UserContext";
 
 export const Gender: FC = () => {
-  const { job } = useContext(UserFormContext);
+  const { job, setJob } = useContext(UserContext);
 
   const genderOptions = [
     {
@@ -29,10 +35,13 @@ export const Gender: FC = () => {
         aria-labelledby="gender-radio"
         name="radio-group"
         defaultValue={1}
+        onChange={(e) => {
+          setJob(e.target.value);
+        }}
       >
         {genderOptions.map((option) => (
           <FormControlLabel
-              key={option.value}
+            key={option.value}
             value={option.value}
             control={<Radio />}
             label={option.text}

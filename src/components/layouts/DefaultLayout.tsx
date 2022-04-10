@@ -1,7 +1,7 @@
-import {Alert, Box, Grid, Snackbar} from "@mui/material";
-import {Outlet, useLocation} from "react-router-dom";
-import {useContext, useEffect, useState} from "react";
-import {MessageContext} from "../../context/MessageContext";
+import { Alert, Box, Grid, Snackbar } from "@mui/material";
+import { Outlet, useLocation } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { MessageContext } from "../../context/MessageContext";
 
 export const DefaultLayout = () => {
   const { message, setMessage } = useContext(MessageContext);

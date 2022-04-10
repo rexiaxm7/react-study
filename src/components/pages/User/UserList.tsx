@@ -1,9 +1,9 @@
-import {Box, Button, Card, Grid} from "@mui/material";
-import {SetStateAction, useContext, useEffect, useState} from "react";
-import axios, {AxiosResponse} from "axios";
-import {MessageContext} from "../../../context/MessageContext";
-import {UserTable} from "../../models/user/Table";
-import {useNavigate} from "react-router-dom";
+import { Box, Button, Card, Grid } from "@mui/material";
+import { SetStateAction, useContext, useEffect, useState } from "react";
+import axios, { AxiosResponse } from "axios";
+import { MessageContext } from "../../../context/MessageContext";
+import { UserTable } from "../../models/user/Table";
+import { useNavigate } from "react-router-dom";
 
 export const UserList = () => {
   const { setMessage } = useContext(MessageContext);
