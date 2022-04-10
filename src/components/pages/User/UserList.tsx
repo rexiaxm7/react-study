@@ -2,7 +2,7 @@ import { Box, Button, Card, Grid } from "@mui/material";
 import { SetStateAction, useContext, useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import { MessageContext } from "../../../context/MessageContext";
-import { UserTable } from "../../models/UserTable";
+import { Table } from "../../models/user/Table";
 import { useNavigate } from "react-router-dom";
 
 export const UserList = () => {
@@ -47,7 +47,7 @@ export const UserList = () => {
           </Grid>
         </Grid>
         <Box mx={2}>
-          <UserTable rows={rows} />
+          <Table rows={rows} />
         </Box>
       </Card>
     </>
