@@ -1,8 +1,7 @@
-import {FormControl, FormControlLabel, FormLabel, InputAdornment, InputProps, Radio, RadioGroup,} from "@mui/material";
+import {FormControl, FormControlLabel, FormLabel, Radio, RadioGroup,} from "@mui/material";
 
 import {FC, useContext} from "react";
 import {UserFormContext} from "../../../../../context/UserFormContext";
-import WcIcon from "@mui/icons-material/Wc";
 
 export const Gender: FC = () => {
   const { job } = useContext(UserFormContext);

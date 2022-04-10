@@ -1,12 +1,7 @@
-import {
-  InputAdornment,
-  InputBaseComponentProps,
-  InputProps,
-  TextField,
-} from "@mui/material";
-import { FC, useContext } from "react";
-import { UserFormContext } from "../../../../../context/UserFormContext";
-import SportsBasketballIcon from "@mui/icons-material/SportsBasketball";
+import {TextField,} from "@mui/material";
+import {FC, useContext} from "react";
+import {UserFormContext} from "../../../../../context/UserFormContext";
+
 export const Hobby: FC = () => {
   const { hobby } = useContext(UserFormContext);
 

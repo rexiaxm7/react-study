@@ -1,4 +1,4 @@
-import {InputProps, TextField,} from "@mui/material";
+import {TextField,} from "@mui/material";
 import {FC, useContext} from "react";
 import {UserFormContext} from "../../../../../context/UserFormContext";
 

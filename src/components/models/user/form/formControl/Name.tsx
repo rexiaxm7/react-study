@@ -1,12 +1,7 @@
-import {
-  InputAdornment,
-  InputBaseComponentProps,
-  InputProps,
-  TextField,
-} from "@mui/material";
-import { FC, useContext } from "react";
-import { UserFormContext } from "../../../../../context/UserFormContext";
-import AbcIcon from "@mui/icons-material/Abc";
+import {TextField,} from "@mui/material";
+import {FC, useContext} from "react";
+import {UserFormContext} from "../../../../../context/UserFormContext";
+
 export const Name: FC = () => {
   const { name } = useContext(UserFormContext);
 

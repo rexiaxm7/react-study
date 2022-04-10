@@ -1,13 +1,7 @@
-import {
-  FormControl,
-  InputAdornment,
-  InputBaseComponentProps, InputLabel,
-  InputProps, MenuItem, Select,
-  TextField,
-} from "@mui/material";
-import { FC, useContext } from "react";
-import { UserFormContext } from "../../../../../context/UserFormContext";
-import WorkIcon from "@mui/icons-material/Work";
+import {FormControl, InputLabel, MenuItem, Select,} from "@mui/material";
+import {FC, useContext} from "react";
+import {UserFormContext} from "../../../../../context/UserFormContext";
+
 export const Job: FC = () => {
   const { job } = useContext(UserFormContext);
 
