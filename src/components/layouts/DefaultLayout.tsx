@@ -1,4 +1,4 @@
-import { Alert, Box, Snackbar } from "@mui/material";
+import { Alert, Box, Grid, Snackbar } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { MessageContext } from "../../context/MessageContext";
@@ -11,7 +11,7 @@ export const DefaultLayout = () => {
     vertical: "top",
     horizontal: "center",
   });
-  const{open} = state
+  const { open } = state;
 
   const handleClose = () => {
     setState({ ...state, open: false });
@@ -28,9 +28,20 @@ export const DefaultLayout = () => {
           {message}
         </Alert>
       </Snackbar>
-      <main>
-        <Outlet />
-      </main>
+
+        <Grid
+          container
+          justifyContent="center"
+          alignContent="center"
+          height={"100%"}
+        >
+          <Grid item xs={12}>
+              <main>
+            <Outlet />
+              </main>
+          </Grid>
+        </Grid>
+
     </Box>
   );
 };

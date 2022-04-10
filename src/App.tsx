@@ -10,7 +10,7 @@ import { DefaultLayout } from "./components/layouts/DefaultLayout";
 import { Container } from "@mui/material";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MessageContext } from "./context/MessageContext";
-import {UserCreate as UserDetail} from "./components/pages/User/UserCreate";
+import { UserCreate as UserDetail } from "./components/pages/User/UserCreate";
 
 const App = () => {
   const [message, setMessage] = useState("");
@@ -23,8 +23,8 @@ const App = () => {
     <Container>
       <MessageContext.Provider value={value}>
         <Routes>
-          <Route index element={<UserList />} />
           <Route path="/" element={<DefaultLayout />}>
+            <Route index element={<UserList />} />
             <Route path="/users" element={<UserList />} />
             <Route path="/users/create" element={<UserDetail />} />
           </Route>
