@@ -1,4 +1,12 @@
-import {InputAdornment, InputBaseComponentProps, InputProps, TextField} from "@mui/material";
+import {
+    FormControl, FormControlLabel, FormLabel,
+    InputAdornment,
+    InputBaseComponentProps,
+    InputProps,
+    Radio,
+    RadioGroup,
+    TextField
+} from "@mui/material";
 import { FC, useContext } from "react";
 import { UserFormContext } from "../../../../../context/UserFormContext";
 import WcIcon from '@mui/icons-material/Wc';export const Gender: FC = () => {
@@ -10,13 +18,30 @@ import WcIcon from '@mui/icons-material/Wc';export const Gender: FC = () => {
           </InputAdornment>
       ),
   }
+  const genderOptions = [{
+      text:"男",
+      value:1
+  },{
+      text:"女",
+      value:2
+  },{
+      text:"なし",
+      value:0
+  }]
 
   return (
-    <TextField
-        InputProps={inputProps}
-        label={"性別"}
-        value={gender}
-        variant="standard"
-    />
+      <FormControl>
+          <FormLabel id="gender-radio">性別</FormLabel>
+          <RadioGroup
+              row
+              aria-labelledby="gender-radio"
+              name="radio-group"
+              defaultValue={1}
+          >
+              {genderOptions.map((option)=> (
+                  <FormControlLabel value={option.value} control={<Radio />} label={option.text} />
+                  ))}
+          </RadioGroup>
+      </FormControl>
   );
 };
