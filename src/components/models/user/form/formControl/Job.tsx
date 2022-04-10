@@ -1,15 +1,15 @@
 import {InputAdornment, InputBaseComponentProps, InputProps, TextField} from "@mui/material";
 import { FC, useContext } from "react";
 import { UserFormContext } from "../../../../../context/UserFormContext";
-import MailIcon from '@mui/icons-material/Mail';
-export const Mail: FC = () => {
-  const { mail } = useContext(UserFormContext);
-  const inputProps:Partial<InputProps>= {
+import WorkIcon from '@mui/icons-material/Work';
+export const Job: FC = () => {
+  const { job } = useContext(UserFormContext);
+  const inputProps: Partial<InputProps>= {
     startAdornment: (
         <InputAdornment position="start">
-          <MailIcon/>
+          <WorkIcon/>
         </InputAdornment>
     ),
   }
-  return <TextField InputProps={inputProps} label={"メールアドレス"} value={mail} variant="standard" />;
+  return <TextField InputProps={inputProps} label={"職業"} value={job} variant="standard"></TextField>;
 };
