@@ -1,16 +1,11 @@
-import React, {
-  createContext,
-  SetStateAction,
-  useContext,
-  useState,
-} from "react";
+import React, {useState,} from "react";
 import "./App.css";
-import { UserList as UserList } from "./components/pages/User/UserList";
-import { DefaultLayout } from "./components/layouts/DefaultLayout";
-import { Container } from "@mui/material";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { MessageContext } from "./context/MessageContext";
-import { UserCreate as UserDetail } from "./components/pages/User/UserCreate";
+import {UserList as UserList} from "./components/pages/User/UserList";
+import {DefaultLayout} from "./components/layouts/DefaultLayout";
+import {Container} from "@mui/material";
+import {Route, Routes} from "react-router-dom";
+import {MessageContext} from "./context/MessageContext";
+import {UserCreate as UserDetail} from "./components/pages/User/UserCreate";
 
 const App = () => {
   const [message, setMessage] = useState("");

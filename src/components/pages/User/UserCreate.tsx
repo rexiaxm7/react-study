@@ -1,9 +1,7 @@
-import { Button, Card, Grid, Typography } from "@mui/material";
-import { FC, useEffect, useState } from "react";
-
-import { UserDataTypes } from "../../../context/UserFormContext";
-import { UserForm } from "../../models/user/form/Index";
-import { useNavigate } from "react-router-dom";
+import {Button, Card, Grid, Typography} from "@mui/material";
+import {FC, useEffect} from "react";
+import {UserForm} from "../../models/user/form/Index";
+import {useNavigate} from "react-router-dom";
 
 export const UserCreate: FC = () => {
   useEffect(() => {

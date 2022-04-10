@@ -1,22 +1,22 @@
-import React, { createContext, Dispatch, SetStateAction } from "react";
+import React, {createContext} from "react";
 
 export type UserDataTypes = {
   id: number | null;
-  name: string | null;
+  name: string ;
   age: number | null;
-  mail: string | null;
-  job: string | null;
+  mail: string ;
+  job: string ;
   gender: number | null;
-  hobby: string | null;
+  hobby: string ;
 };
 
 export const defaultValue = {
   id: null,
-  name: null,
+  name: "",
   age: null,
-  mail: null,
-  job: null,
+  mail: "",
+  job: "",
   gender: null,
-  hobby: null,
+  hobby: "",
 };
 export const UserFormContext = createContext<UserDataTypes>(defaultValue);
