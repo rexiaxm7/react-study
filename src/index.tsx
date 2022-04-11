@@ -1,10 +1,11 @@
 import React from "react";
-import ReactDOM, { render } from "react-dom";
+import { render } from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Test } from "./components/pages/Test";
-import DataTable from "./components/DataGrid/DataTable";
+import { DataTable } from "./components/DataGrid/DataTable";
+import { Register } from "./components/Create/UserCreate";
 
 const rootElement = document.getElementById("root");
 render(
@@ -12,6 +13,7 @@ render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<DataTable />} />
+        <Route path="/register" element={<Register />} />
         <Route path="test" element={<Test />} />
       </Routes>
     </BrowserRouter>

@@ -7,3 +7,8 @@ export type Data = {
   job: string;
   interests: string[];
 };
+
+export type RadioType = {
+  id: number;
+  name: string;
+};
