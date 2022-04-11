@@ -10,7 +10,7 @@ import { FC, useContext } from "react";
 import { UserContext } from "../../../../../context/UserContext";
 
 export const Gender: FC = () => {
-  const { job, setJob } = useContext(UserContext);
+  const { setGender } = useContext(UserContext);
 
   const genderOptions = [
     {
@@ -36,7 +36,7 @@ export const Gender: FC = () => {
         name="radio-group"
         defaultValue={1}
         onChange={(e) => {
-          setJob(e.target.value);
+          setGender(Number(e.target.value));
         }}
       >
         {genderOptions.map((option) => (

@@ -10,7 +10,11 @@ import { FC, useContext } from "react";
 import { UserContext } from "../../../../../context/UserContext";
 
 export const Job: FC = () => {
-  const { job } = useContext(UserContext);
+  const { job ,setJob} = useContext(UserContext);
+  const onChangeJobs = (e: any, value: any) => {
+     if (typeof value === "string") return  setJob(value);
+    setJob(value.value);
+  };
   const jobOptions = [
     {
       label: "エンジニア",
@@ -31,8 +35,12 @@ export const Job: FC = () => {
       freeSolo
       options={jobOptions}
       noOptionsText={"候補が存在しません"}
+      onChange={onChangeJobs}
+      onInputChange={(event, newInputValue) => {
+        setJob(newInputValue)
+      }}
       renderInput={(params) => (
-        <TextField {...params} label={"職業"} value={job} variant="standard" />
+        <TextField {...params} label={"職業"} value={job} variant="standard"     />
       )}
     />
   );
