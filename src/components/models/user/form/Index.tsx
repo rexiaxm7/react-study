@@ -3,7 +3,7 @@ import {FC} from "react";
 import {
   UserAgeFormControl,
   UserGenderFormControl,
-  UserHobbyFormControl,
+  UserInterestsFormControl,
   UserIdFormControl,
   UserJobFormControl,
   UserMailFormControl,
@@ -19,7 +19,7 @@ export const UserForm: FC = () => {
       <UserAgeFormControl> </UserAgeFormControl>
       <UserJobFormControl> </UserJobFormControl>
       <UserGenderFormControl> </UserGenderFormControl>
-      <UserHobbyFormControl> </UserHobbyFormControl>
+      <UserInterestsFormControl> </UserInterestsFormControl>
     </Stack>
   );
 };
