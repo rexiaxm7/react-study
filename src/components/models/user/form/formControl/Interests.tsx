@@ -2,17 +2,17 @@ import { Autocomplete, TextField } from "@mui/material";
 import { FC, useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../../../context/UserContext";
 
-export const Hobby: FC = () => {
-  const { hobby, setHobby } = useContext(UserContext);
-  const onChangeHobby = (e: any, value: any) => {
+export const Interests: FC = () => {
+  const { interests, setInterests } = useContext(UserContext);
+  const onChangeInterests = (e: any, value: any) => {
     const values = value.map((option: any) => {
       if (typeof option === "string") return option;
       return option.value;
     });
-    setHobby(values);
+    setInterests(values);
   };
-  type HobbyOptionTypes = { label: string; value: string }[];
-  const hobbyOptions: HobbyOptionTypes = [
+  type InterestsOptionTypes = { label: string; value: string }[];
+  const interestsOptions: InterestsOptionTypes = [
     {
       label: "サッカー",
       value: "サッカー",
@@ -39,10 +39,10 @@ export const Hobby: FC = () => {
     <Autocomplete
       multiple
       freeSolo
-      defaultValue={hobby}
+      defaultValue={interests}
       id="tags-outlined"
-      options={hobbyOptions}
-      onChange={onChangeHobby}
+      options={interestsOptions}
+      onChange={onChangeInterests}
       autoSelect
       renderInput={(params) => (
         <TextField {...params} variant="standard" label="趣味" />
