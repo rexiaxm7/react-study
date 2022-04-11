@@ -4,8 +4,9 @@ import {FC} from "react";
 type UserConfirmDialogProps={
     open:boolean;
     handleClose:()=>void;
+    handleOK:()=>void;
 }
-export const UserConfirmDialog:FC<UserConfirmDialogProps> = ({open,handleClose}) => {
+export const UserConfirmDialog:FC<UserConfirmDialogProps> = ({open,handleClose,handleOK}) => {
 
     return (  <Dialog
         open={open}
@@ -23,7 +24,7 @@ export const UserConfirmDialog:FC<UserConfirmDialogProps> = ({open,handleClose})
         </DialogContent>
         <DialogActions>
             <Button onClick={handleClose}>キャンセル</Button>
-            <Button onClick={handleClose} autoFocus>
+            <Button onClick={handleOK} autoFocus>
                 登録
             </Button>
         </DialogActions>

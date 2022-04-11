@@ -6,7 +6,7 @@ type UserContextTypes = UserIdContextType &
   UserMailContextType &
   UserJobContextType &
   UserGenderContextType &
-  UserHobbyContextType;
+  UserInterestsContextType;
 
 export type UserIdType = number | null;
 export type UserNameType = string;
@@ -14,7 +14,7 @@ export type UserAgeType = number | null;
 export type UserMailType = string;
 export type UserJobType = string;
 export type UserGenderType = number | null;
-export type UserHobbyType = string[];
+export type UserInterestsType = string[];
 
 export type UserIdContextType = {
   id: UserIdType;
@@ -40,9 +40,9 @@ export type UserGenderContextType = {
   gender: UserGenderType;
   setGender: Dispatch<SetStateAction<UserGenderType>>;
 };
-export type UserHobbyContextType = {
-  hobby: UserHobbyType;
-  setHobby: Dispatch<SetStateAction<UserHobbyType>>;
+export type UserInterestsContextType = {
+  interests: UserInterestsType;
+  setInterests: Dispatch<SetStateAction<UserInterestsType>>;
 };
 export const defaultUserId = {
   id: null,
@@ -68,9 +68,9 @@ export const defaultUserGender = {
   gender: null,
   setGender: () => {},
 };
-export const defaultUserHobby = {
-  hobby: [],
-  setHobby: () => {},
+export const defaultUserInterests = {
+  interests: [],
+  setInterests: () => {},
 };
 
 const userDefaultValues = {
@@ -80,7 +80,7 @@ const userDefaultValues = {
   ...defaultUserMail,
   ...defaultUserJob,
   ...defaultUserGender,
-  ...defaultUserHobby,
+  ...defaultUserInterests,
 };
 
 export const UserContext = createContext<UserContextTypes>(userDefaultValues);

@@ -1,11 +1,11 @@
 import { Button, Card, Grid, Typography } from "@mui/material";
-import { FC, useEffect, useState } from "react";
+import {FC, useContext, useEffect, useState} from "react";
 import { UserForm } from "../../models/user/form/Index";
 import { useNavigate } from "react-router-dom";
 import {
   defaultUserAge,
   defaultUserGender,
-  defaultUserHobby,
+  defaultUserInterests,
   defaultUserId,
   defaultUserJob,
   defaultUserMail,
@@ -13,13 +13,15 @@ import {
   UserAgeType,
   UserContext,
   UserGenderType,
-  UserHobbyType,
+  UserInterestsType,
   UserIdType,
   UserJobType,
   UserMailType,
   UserNameType,
 } from "../../../context/UserContext";
 import {UserConfirmDialog} from "../../models/user/UserConfirmDialog";
+import axios from "axios";
+import {MessageContext} from "../../../context/MessageContext";
 
 export const UserCreate: FC = () => {
   const [id, setId] = useState<UserIdType>(defaultUserId.id);
@@ -30,7 +32,7 @@ export const UserCreate: FC = () => {
   const [gender, setGender] = useState<UserGenderType>(
     defaultUserGender.gender
   );
-  const [hobby, setHobby] = useState<UserHobbyType>(defaultUserHobby.hobby);
+  const [interests, setInterests] = useState<UserInterestsType>(defaultUserInterests.interests);
   const userFormValue = {
     id,
     setId,
@@ -44,16 +46,17 @@ export const UserCreate: FC = () => {
     setJob,
     gender,
     setGender,
-    hobby,
-    setHobby,
+    interests,
+    setInterests,
   };
+  const { setMessage } = useContext(MessageContext);
   useEffect(() => {
     document.title = "ユーザー登録";
   }, []);
+
   const navigate = useNavigate();
   const openConfirmDialog = () => {
     handleClickOpen()
-    // navigate("/users")
   }
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
@@ -62,6 +65,20 @@ export const UserCreate: FC = () => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleOK = async () => {
+    try {
+      await axios.post("http://localhost:3001/users", {
+        mail, age, gender, job, interests
+      });
+      setMessage({text:"ユーザーの登録が完了しました。",type:"success"});
+      navigate("/users")
+    } catch(e) {
+      setMessage({text:"ユーザーの登録に失敗しました。",type:"error"})
+    } finally {
+      setOpen(false);
+    }
   };
 
   return (
@@ -84,7 +101,7 @@ export const UserCreate: FC = () => {
               <Button variant="outlined" onClick={openConfirmDialog}>
                 更新
               </Button>
-              <UserConfirmDialog open={open} handleClose={handleClose}/>
+              <UserConfirmDialog open={open} handleClose={handleClose} handleOK={handleOK}/>
             </Grid>
           </Grid>
         </Card>

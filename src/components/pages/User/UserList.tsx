@@ -24,7 +24,7 @@ export const UserList = () => {
         );
         setRows(data?.data);
       } catch {
-        setMessage("データの取得に失敗しました");
+        setMessage({text:"データの取得に失敗しました",type:"error"});
         setRows([]);
       }
     })();
@@ -32,7 +32,7 @@ export const UserList = () => {
 
   return (
     <>
-      <Card sx={{ height: "300px" }}>
+      <Card sx={{ minHeight: "300px" }}>
         <Grid container justifyContent="end" alignContent="">
           <Grid
             item
