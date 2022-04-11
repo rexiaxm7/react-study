@@ -4,11 +4,11 @@ import { UserList as UserList } from "./components/pages/User/UserList";
 import { DefaultLayout } from "./components/layouts/DefaultLayout";
 import { Container } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
-import { MessageContext } from "./context/MessageContext";
+import {MessageContext, MessageTypes} from "./context/MessageContext";
 import { UserCreate as UserDetail } from "./components/pages/User/UserCreate";
 
 const App = () => {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState<MessageTypes>(undefined);
   const value = {
     message,
     setMessage,

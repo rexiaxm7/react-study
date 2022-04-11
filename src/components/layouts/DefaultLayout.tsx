@@ -7,7 +7,7 @@ export const DefaultLayout = () => {
   const { message, setMessage } = useContext(MessageContext);
   const location = useLocation();
 
-  useEffect(() => setState({ ...state, open: !!message }), [message]);
+  useEffect(() => setState({ ...state, open: !!message?.text }), [message]);
   const [state, setState] = useState({
     open: false,
     vertical: "top",
@@ -17,22 +17,24 @@ export const DefaultLayout = () => {
 
   const handleClose = () => {
     setState({ ...state, open: false });
+    setMessage(undefined)
   };
   useEffect(() => {
-    setMessage("");
+    // setMessage(undefined);
   }, [location.pathname]);
   return (
     <Box sx={{ height: "100vh" }}>
-      <Snackbar
-        anchorOrigin={{ vertical: "top", horizontal: "center" }}
-        open={open}
-        autoHideDuration={6000}
-        onClose={handleClose}
+      {message &&    <Snackbar
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+          open={open}
+          autoHideDuration={6000}
+          onClose={handleClose}
       >
-        <Alert severity="error" sx={{ width: "100%" }}>
-          {message}
+        <Alert severity={message.type} sx={{ width: "100%" }}>
+          {message.text}
         </Alert>
-      </Snackbar>
+      </Snackbar>}
+
 
       <Grid
         container
