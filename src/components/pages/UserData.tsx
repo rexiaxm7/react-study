@@ -1,13 +1,17 @@
 import axios from "axios";
 import { useState , useEffect } from "react";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid , jaJP } from "@mui/x-data-grid";
 import Button from '@mui/material/Button';
+import { createTheme } from '@mui/material/styles'
 
 import Columns from "./Columns";
+import { ThemeProvider } from "@emotion/react";
 
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export const UserData = () => {
+    const language = createTheme({}, jaJP)
+
     type userObject = {
         "id": number,
         "mail": string,
@@ -64,15 +68,17 @@ export const UserData = () => {
     };
 
     return (
-        <div style={{ height: 400, width: '100%' }}>
-            <DataGrid
-                rows={data}
-                columns={Columns}
-                pageSize={5}
-                rowsPerPageOptions={[5]}
-                components={{
-                    Toolbar: editToolBar,
-                }} />
-        </div>
+        <ThemeProvider theme={language}>
+            <div style={{ height: 400, width: '100%' }}>
+                <DataGrid
+                    rows={data}
+                    columns={Columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    components={{
+                        Toolbar: editToolBar,
+                    }} />
+            </div>
+        </ThemeProvider>
     );
 }
