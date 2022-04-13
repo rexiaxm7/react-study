@@ -2,6 +2,17 @@ import { Chip, Typography } from "@mui/material";
 import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import { Data } from "../../Type";
 
+const toGenderDisplay = (gender: number): string => {
+  switch (gender) {
+    case 1:
+      return "男";
+    case 2:
+      return "女";
+    default:
+      return "不明";
+  }
+};
+
 const columns: GridColDef[] = [
   { field: "user_id", headerName: "ID" },
   { field: "mail", headerName: "メールアドレス", width: 150 },
@@ -12,13 +23,7 @@ const columns: GridColDef[] = [
     headerName: "性別",
     renderCell: (params: GridRenderCellParams<number, Data>) => (
       <>
-        {params.value === 1 ? (
-          <Typography>男</Typography>
-        ) : params.value === 2 ? (
-          <Typography>女</Typography>
-        ) : (
-          <Typography>不明</Typography>
-        )}
+        <Typography>{toGenderDisplay(params.value)}</Typography>
       </>
     ),
   },
@@ -29,7 +34,7 @@ const columns: GridColDef[] = [
     renderCell: (params: GridRenderCellParams<string[], Data>) => (
       <>
         {params.value.map((param: string) => (
-          <Chip label={param} color="primary" />
+          <Chip key={param} label={param} color="primary" />
         ))}
       </>
     ),
