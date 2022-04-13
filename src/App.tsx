@@ -1,18 +1,14 @@
-import React, {
-  createContext,
-  SetStateAction,
-  useContext,
-  useState,
-} from "react";
+import React, { useState } from "react";
 import "./App.css";
-import { Users } from "./components/pages/Users";
+import { UserList as UserList } from "./components/pages/User/UserList";
 import { DefaultLayout } from "./components/layouts/DefaultLayout";
 import { Container } from "@mui/material";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { MessageContext } from "./context/MessageContext";
+import { Route, Routes } from "react-router-dom";
+import {MessageContext, MessageTypes} from "./context/MessageContext";
+import { UserCreate as UserDetail } from "./components/pages/User/UserCreate";
 
 const App = () => {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState<MessageTypes>(undefined);
   const value = {
     message,
     setMessage,
@@ -22,9 +18,10 @@ const App = () => {
     <Container>
       <MessageContext.Provider value={value}>
         <Routes>
-          <Route index element={<Users />} />
           <Route path="/" element={<DefaultLayout />}>
-            <Route path="/users" element={<Users />} />
+            <Route index element={<UserList />} />
+            <Route path="/users" element={<UserList />} />
+            <Route path="/users/create" element={<UserDetail />} />
           </Route>
         </Routes>
       </MessageContext.Provider>

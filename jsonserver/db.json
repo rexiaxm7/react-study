@@ -7,7 +7,10 @@
       "age": 20,
       "gender": 1,
       "job": "エンジニア",
-      "interests": ["ゲーム", "プログラミング"]
+      "interests": [
+        "ゲーム",
+        "プログラミング"
+      ]
     },
     {
       "id": 2,
@@ -16,7 +19,33 @@
       "age": 25,
       "gender": 2,
       "job": "美容師",
-      "interests": ["ショッピング", "カフェ巡り"]
+      "interests": [
+        "ショッピング",
+        "カフェ巡り"
+      ]
+    },
+    {
+      "mail": "test@test.com",
+      "age": 11,
+      "gender": null,
+      "job": "",
+      "interests": [
+        "工作",
+        "音楽鑑賞"
+      ],
+      "id": 3
+    },
+    {
+      "mail": "test@test.com",
+      "age": 12,
+      "gender": 1,
+      "job": "建設作業員",
+      "interests": [
+        "クリケット",
+        "プログラミング",
+        "工作"
+      ],
+      "id": 4
     }
   ]
 }
